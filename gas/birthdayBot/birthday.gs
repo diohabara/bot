@@ -37,7 +37,8 @@ function happyBirthMessage() {
   var max_i = MY_SHEET.getRange("<誕生日の書かれた列>").getValues().filter(String).length;
   for (i = 2; i <= max_i; i++) {
     // 誕生日のmonthとdayを取得する
-    var birthYearMonthDay = MY_SHEET.getRange(i, 3).getValue();
+    // スプレッドシートの日付をDate型にキャストする
+    var birthYearMonthDay = new Date(MY_SHEET.getRange(i, 3).getValue());
     var birthMonth = birthYearMonthDay.getMonth();
     var birthday = birthYearMonthDay.getDate();
 
